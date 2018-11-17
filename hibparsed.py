@@ -33,7 +33,7 @@ with open(FILE, "r") as F:
                     PASSWORD_COUNT += 1
                 elif item == "Password hints":
                     print("PASSWORD HINT COMPROMISED FOR: "+ALIAS)
-                    #PASSWORD_COUNT += 1
+                    PASSWORD_COUNT += 1
                 
             print("")
         except IndexError:
@@ -41,4 +41,4 @@ with open(FILE, "r") as F:
             break
 
     F.close()
-#print("TOTAL COMPROMSED PASSWORDS/HINTS: "+str(PASSWORD_COUNT))
+print("TOTAL COMPROMSED PASSWORDS/HINTS: "+str(PASSWORD_COUNT))
