@@ -11,6 +11,7 @@ FILE = args.pwndfile
 with open(FILE, "r") as F:
     json_data = json.load(F)
     COUNT = 0
+    PASSWORD_COUNT = 0
     while True:
         try:
             ALIAS = json_data["BreachSearchResults"][COUNT]["Alias"]
@@ -25,10 +26,19 @@ with open(FILE, "r") as F:
                 print("SENSITIVE BREACH")
             else:
                 print("Not sensitive")
-            for item in DATA_LEAKED:
+            for item in DATA_LEAKED: 
                 print("Data leaked: "+item)
+                if item == "Passwords":
+                    print("PASSWORD COMPROMISED FOR: "+ALIAS)
+                    PASSWORD_COUNT += 1
+                elif item == "Password hints":
+                    print("PASSWORD HINT COMPROMISED FOR: "+ALIAS)
+                    #PASSWORD_COUNT += 1
+                
             print("")
         except IndexError:
-            print("Index done at: "+str(COUNT))
+            print("Ran through index of: "+str(COUNT))
             break
+
     F.close()
+#print("TOTAL COMPROMSED PASSWORDS/HINTS: "+str(PASSWORD_COUNT))
