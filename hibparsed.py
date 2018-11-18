@@ -21,6 +21,7 @@ with open(FILE, "r") as F:
     json_data = json.load(F)
     COUNT = 0
     PASSWORD_COUNT = 0
+
     if SKIP_STATUS == "Y":
         while True:
             try:
@@ -79,6 +80,5 @@ with open(FILE, "r") as F:
             except IndexError:
                 print("Ran through index of: "+str(COUNT))
                 break
-
     F.close()
 print("TOTAL COMPROMSED PASSWORDS/HINTS: "+str(PASSWORD_COUNT))
